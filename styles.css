@@ -1,0 +1,27 @@
+.footer{
+    color: white;
+    background-color: black;
+    padding: 10px;
+}
+.face{
+    width: 40px;
+    height: 40px;
+}
+.ins{
+    width: 40px;
+    height: 40px;
+}
+.tik{
+    width: 40px;
+    height: 40px;
+}
+.utp{
+    width: 90px;
+    height: 40px;
+}
+
+a{
+    color: black;
+    text-decoration: none;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
