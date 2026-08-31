@@ -1,8 +1,14 @@
-.footer{
-    color: rgb(7, 7, 7);
-    background-color: rgba(209, 155, 200, 0.992);
-    padding: 10px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
 }
+body{
+
+    background-color: rgb(255, 255, 255);
+}
+
 .face{
     color: rgb(255, 255, 255);
     width: 40px;
@@ -20,9 +26,192 @@
     width: 200px;
     height: 50px;
 }
-
-a{
-    color: black;
-    text-decoration: none;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+.titulo {
+    width: 100%;
+    height: 10%;
+    background-color: #FAFAFF;
+    padding: 25px 0 15px 0;
+    text-align: center;
+    align-items: center;
 }
+
+.titulo h1 {
+    font-family: 'montserrat', sans-serif;
+    margin: 0 0 15px 0;
+    color: #1C1C1C;
+    font-size: 26px;
+    
+}
+
+/* Contenedor del menú */
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px; /* Separa los enlaces entre sí */
+}
+
+/* ENLACES DEL MENÚ (AQUÍ ESTÁ LA MAGIA) */
+.menu a {
+    color: #1C1C1C ; 
+    text-decoration: none;        
+    font-size:25px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: opacity 0.3s ease;
+}
+
+.menu a:hover {
+    opacity: 0.6; /* Efecto suave al pasar el mouse */
+}
+
+/* PORTADA */
+.portada {
+    width: 100%;
+    max-height: 100px;
+    object-fit: cover;
+    display: block;
+}
+
+/* LISTA DE PRODUCTOS*/
+/* Contenedor de la lista de productos */
+.lista_productos,
+div[clas="lista_productos"] {
+    display: flex;
+    flex-wrap: wrap;             /* Permite que las tarjetas bajes de fila en móviles */
+    justify-content: center;     /* Centra las tarjetas */
+    gap: 20px;                   /* Separación constante entre tarjetas */
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
+/* Tarjeta individual */
+.tarjeta_producto {
+    flex: 1 1 280px;            /* Crece, se encoge y tiene una base de 280px */
+    max-width: 350px;           /* Limite de ancho para pantallas grandes */
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* Imagen del producto */
+.tarjeta_producto img,
+.producto {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Descripción */
+.tarjeta_producto p {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+
+/* Contenedor de testimonios */
+.seccion-testimonios {
+    display: flex;
+    flex-wrap: wrap;             /* Hace que sea responsivo */
+    justify-content: center;     /* Centra las 3 tarjetas */
+    gap: 20px;                   /* Espacio entre cada tarjeta */
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 15px;
+}
+
+/* El título de los testimonios */
+.seccion-testimonios h2 {
+    flex: 1 0 100%;                  /* Ocupa toda la fila */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Tarjeta individual de testimonio */
+.tarjeta-testimonio {
+    flex: 1 1 280px;            /* lo mismo que se hizo con tarjeta-productos */
+    max-width: 350px;           /* Límite de ancho para pantallas grandes */
+    box-sizing: border-box;
+    padding: 20px;
+    border: 1px solid #e0e0e0;  /* Borde simple para marcar la tarjeta */
+}
+
+/* Alineación con el nombre pero no se muy bien que hace xd */
+.tarjeta-testimonio header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+/* footer con propiedades responsivas */
+.footer {
+    display: flex;
+    flex-wrap: wrap;             /* Permite que baje a 1 fila en celulares */
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 50px auto 0 auto;
+    padding: 40px 20px 20px 20px;
+}
+
+/* Las 3 primeras columnas (Marca, Redes, Contacto) */
+.footer > div {
+    flex: 1 1 250px;            /* Cada columna ocupa como mínimo 250px */
+    max-width: 350px;
+}
+
+.footer h3 {
+    font-size: 16px;
+    margin-bottom: 12px;
+    color: #1C1C1C;
+}
+
+.footer p {
+    font-size: 14px;
+    color: #555555;
+    line-height: 1.5;
+    margin-bottom: 8px;
+}
+
+/* Enlaces de Redes Sociales */
+.footer a {
+    color: #1C1C1C;
+    text-decoration: none;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.footer a:hover {
+    opacity: 0.7;
+}
+
+/* Iconos de redes */
+.face, .ins, .tik {
+    width: 20px;
+    height: 20px;
+}
+
+/* Logo UTP */
+.utp {
+    width: 110px;
+    height: auto;
+    margin-top: 10px;
+}
+
+/* Forzar que el 4to div (Copyright) ocupe toda la fila inferior */
+.footer > div:last-child {
+    flex: 1 0 100%;             /* Ocupa el 100% de la fila */
+    max-width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #f0f0f0;
+}
+
+
