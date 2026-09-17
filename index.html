@@ -14,59 +14,80 @@
     <header>
 
         <div class="titulo">
-            <br>
-            <center>
-                
-                <h1><b>OTAY Artist</b></h1>
-            </center>
+        <div class="barra-navegacion">
+            <a href="index.html" class="logo-link">
+                <img src="IMAGENES/logootay_header.png" alt="Otay Artist" class="logo-header">
+            </a>
 
-            <hr>
-            <nav class="menu">
-                <center> <a href="index.html">Inicio</a>
+            <!-- Botón Hamburguesa -->
+            <button class="menu-btn" id="menu-btn" aria-label="Abrir menú">☰</button>
 
-                    <a href="PAGINAS/productos.html">Productos</a>
-                    <a href="PAGINAS/nosotros.html">Nosotros</a>
-                    <a href="PAGINAS/contacto.html">Contacto</a>
-
-                </center>
+            <!-- Menú Unificado -->
+            <nav id="nav-links">
+                <a href="index.html">Inicio</a>
+                <a href="PAGINAS/productos.html">Productos</a>
+                <a href="PAGINAS/nosotros.html">Nosotros</a>
+                <a href="PAGINAS/contacto.html">Contacto</a>
             </nav>
-            <hr>
         </div>
+    </div>
 
-        <center> <img class="portada" src="IMAGENES/portadaproyecto.png" alt=""> </center>
+        <center> <img class="portada" src="IMAGENES/portadaproyecto.png" alt="Portada Otay Artist"> </center>
     </header>
 
-
+<div class="contenedor-info">   
     <center>
         <article class="info_index">
-            <h3>Nuestra Pasión por el Arte</h3>
+            <h2>Nuestra Pasión por el Arte</h2>
             <p>En <strong>Otay Artist</strong>, nos apasiona transformar espacios a través del arte. Somos una galería
                 dedicada a la creación y venta de pinturas originales y cuadros enmarcados, diseñados con un profundo
-                amor por la estética, el detalle y la expresión visual.</p>
+                amor por la estética, el detalle y la expresión visual. Cada una de nuestras obras busca transmitir una sensación única y convertirse en parte especial de los
+                espacios donde se exhibe. Seleccionamos cuidadosamente nuestros diseños, materiales y acabados para
+                ofrecer piezas que combinen creatividad, calidad y elegancia.</p>
+            <br>
         </article>
     </center>
+</div>
 
     <center>
         <div class="productos">
             <br>
             <h2><b>Nuestros best sellers</b></h2>
-           <div class="lista_productos">
-    <div class="tarjeta_producto">
-        <img class="producto" src="IMAGENES/img1.png" alt="Producto 1">
-        <p>Descripción corta del producto 1</p>
-    </div>
-
-    <div class="tarjeta_producto">
-        <img class="producto" src="IMAGENES/img2..png" alt="Producto 2">
-        <p>Descripción corta del producto 2</p>
-    </div>
-
-    <div class="tarjeta_producto">
-        <img class="producto" src="IMAGENES/img3.png" alt="Producto 3">
-        <p>Descripción corta del producto 3</p>
-    </div>
-</div>
-            </br>
+            <p class="subtitulo_productos">3 productos principales — imagen, información y precio</p>
+            <div class="lista_productos">
+                <div class="tarjeta_producto">
+                    <div class="marco-imagen">
+                        <img class="producto" src="IMAGENES/img1.png" alt="Reflejo de Cisnes">
+                    </div>
+                    <div class="info_producto">
+                        <h3>Reflejo de Cisnes</h3>
+                        <p>Óleo sobre lienzo. Escena de cisnes en un estanque con detalles botánicos, pintada a mano.</p>
+                        <span class="precio">Desde S/ 450</span>
+                    </div>
+                </div>
+                <div class="tarjeta_producto">
+                    <div class="marco-imagen">
+                        <img class="producto" src="IMAGENES/img2..png" alt="Retrato a tu Estilo">
+                    </div>
+                    <div class="info_producto">
+                        <h3>Retrato a tu Estilo</h3>
+                        <p>Retrato personalizado hecho a mano a partir de una foto que envíes. Ideal como regalo.</p>
+                        <span class="precio">Desde S/ 350</span>
+                    </div>
+                </div>
+                <div class="tarjeta_producto">
+                    <div class="marco-imagen">
+                        <img class="producto" src="IMAGENES/img3.png" alt="Serenata Celestial">
+                    </div>
+                    <div class="info_producto">
+                        <h3>Serenata Celestial</h3>
+                        <p>Reproducción clásica enmarcada, inspirada en la pintura religiosa europea.</p>
+                        <span class="precio">Desde S/ 600</span>
+                    </div>
+                </div>
+            </div>
+            <span class="nota_precios">* Precios referenciales — ajustables a tu presupuesto</span>
+            <br>
         </div>
     </center>
 
@@ -75,10 +96,10 @@
 
         <article class="tarjeta-testimonio">
             <header>
-                <div>MC</div>
+                <div class="avatar-inicial">MC</div>
                 <div>
                     <h3>María Cordero</h3>
-                    <span>★ ★ ★ ★ ★</span>
+                    <span class="estrellas">★ ★ ★ ★ ★</span>
                 </div>
             </header>
             <blockquote>
@@ -90,10 +111,10 @@
 
         <article class="tarjeta-testimonio">
             <header>
-                <div>TO</div>
+                <div class="avatar-inicial">TO</div>
                 <div>
                     <h3>Tomas Oscorima</h3>
-                    <span>★ ★ ★ ★ ☆</span>
+                    <span class="estrellas">★ ★ ★ ★ ☆</span>
                 </div>
             </header>
             <blockquote>
@@ -105,10 +126,10 @@
 
         <article class="tarjeta-testimonio">
             <header>
-                <div>BC</div>
+                <div class="avatar-inicial">BC</div>
                 <div>
                     <h3>Braulio Cardenas</h3>
-                    <span>★ ★ ★ ★ ★</span>
+                    <span class="estrellas">★ ★ ★ ★ ★</span>
                 </div>
             </header>
             <blockquote>
@@ -119,16 +140,17 @@
     </section>
 
 
-    <center>
+    <div class="contenedor-proceso">
         <h2><b><u>CONOCE EL PROCESO ARTISTICO</u></b></h2>
         <video controls src="IMAGENES/videoproyecto.mp4" poster="IMAGENES/poster.png" width="900px"
             height="500px"></video>
-    </center>
+    </div>
     <br>
     <br>
+    <div class="footer-wrapper">
     <footer class="footer">
         <div>
-          
+            <img src="IMAGENES/logootay.png" alt="Logo Otay Artist">
             <h3>Otay Artist</h3>
             <p>Arte y Pinturas Personalizadas</p>
             <p>Síguenos en nuestras redes para ver me nuestros últimos proyectos y novedades.</p>
@@ -144,6 +166,23 @@
                 TikTok</a><br>
             
         </div>
+
+        <div class="negocios-similares">
+            <h3>Negocios Similares</h3>
+            <a href="https://www.saatchiart.com" target="_blank" rel="noopener noreferrer">
+                <img class="icono-negocio" src="https://www.google.com/s2/favicons?sz=64&domain=saatchiart.com" alt="Saatchi Art">
+                Saatchi Art</a>
+            <span>Galería de arte online internacional</span>
+            <a href="https://www.ugallery.com" target="_blank" rel="noopener noreferrer">
+                <img class="icono-negocio" src="https://www.google.com/s2/favicons?sz=64&domain=ugallery.com" alt="UGallery">
+                UGallery</a>
+            <span>Venta de pinturas originales</span>
+            <a href="https://society6.com" target="_blank" rel="noopener noreferrer">
+                <img class="icono-negocio" src="https://www.google.com/s2/favicons?sz=64&domain=society6.com" alt="Society6">
+                Society6</a>
+            <span>Arte y diseño personalizado</span>
+        </div>
+
         <div>
             <h3>Contacto Directo</h3>
             <p>Email: otayartist@gmail.com</p>
@@ -151,12 +190,26 @@
                     alt="UTP"></a><br>
         </div>
 
-        <div>
+        <div class="footer-copy">
             <p>&copy; 2026 Otay Artist. Todos los derechos reservados.</p>
         </div>
 
 
     </footer>
+    </div>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const menuBtn = document.getElementById("menu-btn");
+        const navLinks = document.getElementById("nav-links");
+
+        if (menuBtn && navLinks) {
+            menuBtn.addEventListener("click", () => {
+                navLinks.classList.toggle("active");
+            });
+        }
+    });
+     </script>
 </body>
 
 </html>  

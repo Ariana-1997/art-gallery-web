@@ -1,4 +1,6 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -6,8 +8,9 @@
     
 }
 body{
-
-    background-color: rgb(255, 255, 255);
+    font-family: 'Montserrat', sans-serif;
+    background-color: #F5F1E8;
+    color: #1C1C1C;
 }
 
 .face{
@@ -29,11 +32,69 @@ body{
 }
 .titulo {
     width: 100%;
-    height: 10%;
-    background-color: #FAFAFF;
-    padding: 25px 0 15px 0;
-    text-align: center;
+    background-color: #EEF0F2;
+    padding: 14px 30px;
+    border-bottom: 1px solid #EEF0F2;
+}
+
+.barra-navegacion {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
     align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.logo-link {
+    display: block;
+    line-height: 0;
+}
+
+.logo-header {
+    height: 84px;
+    width: auto;
+    display: block;
+    mix-blend-mode: multiply;   /* funde el fondo blanco del logo con el fondo del header */
+}
+
+.titulo nav {
+    display: flex;
+    align-items: center;
+    gap: 38px;
+    flex-wrap: wrap;
+}
+
+.titulo nav a {
+    color: #1C1C1C;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 4px;
+    transition: opacity 0.3s ease;
+}
+
+.titulo nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #1C1C1C;
+    transition: width 0.3s ease;
+}
+
+.titulo nav a:hover {
+    opacity: 0.75;
+}
+
+.titulo nav a:hover::after {
+    width: 100%;
 }
 
 .titulo h1 {
@@ -42,6 +103,19 @@ body{
     color: #1C1C1C;
     font-size: 26px;
     
+}
+.contenedor-info{
+    max-width: 820px;
+    text-align: center;
+    max-width: 900px; /* Ancho máximo para pantallas grandes */
+    margin: 0 auto;
+    padding: 0 1rem;
+    background-color: #FAFAFF;
+}
+
+.info_index{
+    margin-top: 4%;    /* Separación superior respecto al banner */
+    margin-bottom: 4%;
 }
 
 /* Contenedor del menú */
@@ -52,7 +126,7 @@ body{
     gap: 60px; /* Separa los enlaces entre sí */
 }
 
-/* ENLACES DEL MENÚ (AQUÍ ESTÁ LA MAGIA) */
+/* ENLACES DEL MENÚ */
 .menu a {
     color: #1C1C1C ; 
     text-decoration: none;        
@@ -69,12 +143,20 @@ body{
 /* PORTADA */
 .portada {
     width: 100%;
-    max-height: 100px;
+    max-height: 420px;
     object-fit: cover;
+    object-position: center 35%;
     display: block;
 }
 
-/* LISTA DE PRODUCTOS*/
+.subtitulo_productos {
+    font-size: 13px;
+    font-style: italic;
+    color: #8a8a8a;
+    margin-top: 6px;
+    margin-bottom: 10px;
+}
+
 /* Contenedor de la lista de productos */
 .lista_productos,
 div[clas="lista_productos"] {
@@ -90,52 +172,116 @@ div[clas="lista_productos"] {
 /* Tarjeta individual */
 .tarjeta_producto {
     flex: 1 1 280px;            /* Crece, se encoge y tiene una base de 280px */
-    max-width: 350px;           /* Limite de ancho para pantallas grandes */
+    max-width: 340px;           /* Limite de ancho para pantallas grandes */
     box-sizing: border-box;
-    text-align: center;
+    text-align: left;
+    background-color: #FAFAFF;
+    border: 1px solid #EEF0F2;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(28, 28, 28, 0.06);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-/* Imagen del producto */
+.tarjeta_producto:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(28, 28, 28, 0.12);
+}
+
+/* Marco tipo "cuadro" alrededor de la imagen del producto */
+.marco-imagen {
+    padding: 14px 14px 6px 14px;
+    background-color: #FAFAFF;
+}
+
 .tarjeta_producto img,
 .producto {
     width: 100%;
-    height: 250px;
+    height: 210px;
     object-fit: cover;
     display: block;
+    border: 1px solid #DADDD8;
+    outline: 2px solid #1C1C1C;
+    outline-offset: 0;
+}
+
+.tarjeta_producto .info_producto {
+    padding: 18px 20px 22px 20px;
+}
+
+.tarjeta_producto h3 {
+    font-size: 18px;
+    color: #1C1C1C;
+    margin-bottom: 8px;
 }
 
 /* Descripción */
 .tarjeta_producto p {
-    margin-top: 10px;
+    margin-top: 0;
+    margin-bottom: 16px;
     font-size: 14px;
+    color: #555555;
+    line-height: 1.5;
+    min-height: 60px;
+}
+
+.tarjeta_producto .precio {
+    display: inline-block;
+    background-color: #1C1C1C;
+    color: #FAFAFF;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 10px 22px;
+    border-radius: 3px;
+}
+
+.nota_precios {
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    color: #8a8a8a;
+    font-style: italic;
+    margin-top: 22px;
 }
 
 
-/* Contenedor de testimonios */
+/* Contenedor de comentarios */
 .seccion-testimonios {
     display: flex;
     flex-wrap: wrap;             /* Hace que sea responsivo */
     justify-content: center;     /* Centra las 3 tarjetas */
-    gap: 20px;                   /* Espacio entre cada tarjeta */
+    gap: 24px;                   /* Espacio entre cada tarjeta */
     max-width: 1200px;
-    margin: 40px auto;
+    margin: 20px auto 50px auto;
     padding: 0 15px;
 }
 
-/* El título de los testimonios */
+/* El título de los comentarios */
 .seccion-testimonios h2 {
-    flex: 1 0 100%;                  /* Ocupa toda la fila */
+    flex: 1 0 100%;                  
     text-align: center;
-    margin-bottom: 20px;
+    margin: 50px 0 30px 0;
+    color: #1C1C1C;
+    font-size: 26px;
 }
 
-/* Tarjeta individual de testimonio */
+/* Tarjeta individual de comentario */
 .tarjeta-testimonio {
-    flex: 1 1 280px;            /* lo mismo que se hizo con tarjeta-productos */
-    max-width: 350px;           /* Límite de ancho para pantallas grandes */
+    flex: 1 1 280px;           
+    max-width: 340px;           /* Límite de ancho para pantallas grandes */
     box-sizing: border-box;
-    padding: 20px;
-    border: 1px solid #e0e0e0;  /* Borde simple para marcar la tarjeta */
+    padding: 26px 24px;
+    background-color: #FAFAFF;
+    border: 1px solid #EEF0F2;
+    border-radius: 6px;
+    box-shadow: 0 4px 14px rgba(28, 28, 28, 0.06);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.tarjeta-testimonio:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(28, 28, 28, 0.1);
 }
 
 /* Alineación con el nombre pero no se muy bien que hace xd */
@@ -144,6 +290,44 @@ div[clas="lista_productos"] {
     align-items: center;
     gap: 15px;
     margin-bottom: 15px;
+}
+
+/* Círculo con las iniciales del cliente */
+.avatar-inicial {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #1C1C1C;
+    color: #FAFAFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.tarjeta-testimonio h3 {
+    font-size: 16px;
+    color: #1C1C1C;
+    margin-bottom: 4px;
+}
+
+.tarjeta-testimonio .estrellas {
+    color: #C9A227;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+.tarjeta-testimonio blockquote {
+    font-size: 14px;
+    color: #555555;
+    line-height: 1.6;
+    font-style: italic;
+    border-left: 3px solid #DADDD8;
+    padding-left: 14px;
+    margin: 0;
 }
 
 /* footer con propiedades responsivas */
@@ -194,23 +378,141 @@ div[clas="lista_productos"] {
 
 /* Iconos de redes */
 .face, .ins, .tik {
-    width: 20px;
-    height: 20px;
+    width: 35px;
+    height: 35px;
 }
 
 /* Logo UTP */
 .utp {
-    width: 110px;
-    height: auto;
+    width: 240px;
+    height: 50px;
     margin-top: 10px;
 }
 
-/* Forzar que el 4to div (Copyright) ocupe toda la fila inferior */
-.footer > div:last-child {
+/* Copyright  */
+.footer .footer-copy {
     flex: 1 0 100%;             /* Ocupa el 100% de la fila */
     max-width: 100%;
     text-align: center;
     margin-top: 20px;
     padding-top: 15px;
-    border-top: 1px solid #f0f0f0;
-}    
+    border-top: 1px solid #EEF0F2;
+}
+
+.footer .footer-copy p {
+    margin-bottom: 0;
+    font-size: 13px;
+    color: #8a8a8a;
+}
+
+/* Sección Negocios Similares dentro del footer */
+.footer .negocios-similares a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer .negocios-similares .icono-negocio {
+    width: 20px;
+    height: 20px;
+    border-radius: 3px;
+    flex-shrink: 0;
+}
+
+.footer .negocios-similares span {
+    font-size: 12px;
+    color: #8a8a8a;
+    display: block;
+    margin: 2px 0 10px 28px;
+}
+
+
+.footer-wrapper {
+    background-color: #ECEBE4;
+    margin-top: 60px;
+}
+
+.footer img[alt="Logo Otay Artist"] {
+    width: 130px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+
+/* Contenedor general que centra pantallas pequeñas */
+.contenedor-proceso {
+  text-align: center;
+  max-width: 900px; /* Ancho máximo para pantallas grandes */
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Título responsivo usando clamp() */
+.contenedor-proceso h2 {
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem); 
+  font-weight: bold;
+  text-decoration: underline;
+  margin-bottom: 1.5rem;
+}
+
+/* Video responsivo  */
+.contenedor-proceso video {
+  width: 100%;     
+  height: auto;      
+  max-height: 500px;
+  border-radius: 8px; 
+}
+
+.navbar {
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:#EFECE6;
+    padding: 0.5rem 1rem;
+    position: sticky;
+}
+
+
+/* Botón Hamburguesa (oculto en pantallas grandes) */
+.menu-btn {
+    display: none;
+    background: transparent;
+    border: none;
+    font-size: 28px;
+    color: #1C1C1C;
+    cursor: pointer;
+    padding: 5px;
+}
+
+/* --- Responsive para pantallas menores a 768px --- */
+@media (max-width: 768px) {
+    .menu-btn {
+        display: block; /* Muestra el botón ☰  */
+    }
+
+    .titulo nav {
+        display: none; /* Oculta los enlaces por defecto */
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+        padding-top: 15px;
+        padding-bottom: 10px;
+    }
+
+    .titulo nav.active {
+        display: flex; /* Se despliega al pulsar el botón ☰ */
+    }
+}
+
+.info_index {
+    padding: 50px;
+    text-align: left;
+    border-radius: 9px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.info_index h2, .info_index p {
+    margin: 20px;
+}
