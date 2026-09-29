@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Otay Artist</title>
-    <link rel="stylesheet" href="styles.css">
+    
     <link rel="icon" type="image/png" href="IMAGENES/logootay_header.png">
    
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
@@ -85,22 +85,22 @@
 
                 <!-- portada 2-->
                 <div class="carousel-item">
-                    <img src="IMAGENES/portada2.jpeg" class="d-block w-100" alt="Slider 2">
+                    <img src="IMAGENES/portada2.jpeg" class="d-block w-100" alt="Slider 2" height="462px">
                 </div>
 
                 <!--portada 3-->
                 <div class="carousel-item">
-                    <img src="IMAGENES/portada3.jpeg" class="d-block w-100" alt="Slider 3">
+                    <img src="IMAGENES/portada3.jpeg" class="d-block w-100" alt="Slider 3" height="462px">
                 </div>
 
                 <!-- portada 4 -->
                 <div class="carousel-item">
-                    <img src="IMAGENES/portada4.jpeg" class="d-block w-100" alt="Slider 4">
+                    <img src="IMAGENES/portada4.jpeg" class="d-block w-100" alt="Slider 4" height="462px">
                 </div>
 
                 <!--portada 5-->
                 <div class="carousel-item">
-                    <img src="IMAGENES/portada5.jpeg" class="d-block w-100" alt="Slider 5">
+                    <img src="IMAGENES/portada5.jpeg" class="d-block w-100" alt="Slider 5" height="462px">
                 </div>
             </div>
 
@@ -251,7 +251,7 @@
             height="500px"></video>
     </div>
     <br><br>
-
+    <script src="eventos.js"></script>
     <div class="footer-wrapper">
         <footer class="footer">
             <div>
@@ -308,67 +308,7 @@
             </div>
         </footer>
     </div>
-
-    <!--busqueda dinámica -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const inputBusqueda = document.getElementById("busqueda-input");
-            const btnLimpiar = document.getElementById("btn-limpiar");
-            const tarjetas = document.querySelectorAll(".item-tarjeta");
-            const infoBusqueda = document.getElementById("info-busqueda");
-            const sinResultados = document.getElementById("sin-resultados");
-
-            function filtrarProductos() {
-                const query = inputBusqueda.value.toLowerCase().trim();
-                let coincidencias = 0;
-
-                tarjetas.forEach(function (card) {
-                    const nombre = card.getAttribute("data-nombre");
-                    const descripcion = card.getAttribute("data-descripcion");
-                    const textoTotal = (nombre + " " + descripcion).toLowerCase();
-
-                    const tituloEl = card.querySelector(".prod-titulo");
-                    const descEl = card.querySelector(".prod-desc");
-
-                    if (textoTotal.includes(query)) {
-                        card.style.display = "";
-                        coincidencias++;
-
-                        if (query !== "") {
-                            const regex = new RegExp(`(${query})`, "gi");
-                            tituloEl.innerHTML = nombre.replace(regex, '<span class="resaltado-busqueda">$1</span>');
-                            descEl.innerHTML = descripcion.replace(regex, '<span class="resaltado-busqueda">$1</span>');
-                        } else {
-                            tituloEl.textContent = nombre;
-                            descEl.textContent = descripcion;
-                        }
-                    } else {
-                        card.style.display = "none";
-                    }
-                });
-
-                if (query === "") {
-                    infoBusqueda.textContent = "";
-                    sinResultados.classList.add("d-none");
-                } else {
-                    infoBusqueda.textContent = `Mostrando ${coincidencias} de ${tarjetas.length} productos`;
-                    if (coincidencias === 0) {
-                        sinResultados.classList.remove("d-none");
-                    } else {
-                        sinResultados.classList.add("d-none");
-                    }
-                }
-            }
-
-            inputBusqueda.addEventListener("input", filtrarProductos);
-
-            btnLimpiar.addEventListener("click", function () {
-                inputBusqueda.value = "";
-                filtrarProductos();
-                inputBusqueda.focus();
-            });
-        });
-    </script>
+    
 </body>
 
 </html>
