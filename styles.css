@@ -907,3 +907,80 @@ div[clas="lista_productos"] {
         padding: 18px;
     }
 }
+
+/* Matriz de responsabilidades*/
+body {
+            font-family: Arial, sans-serif;
+            background-color: #fcfbfa;
+            color: #111;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 26px;
+            font-weight: normal;
+            border-bottom: 2px solid #e2ded6;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-family: "Georgia", serif;
+            text-align: center; /* <-- Aquí se centra el título */
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+            border: 2px solid #a8a39a;
+            background-color: #ffffff;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        th, td {
+            border: 1px solid #b8b3aa;
+            padding: 10px 8px;
+            font-size: 13px;
+        }
+
+        th {
+            background-color: #e6e3da;
+            font-weight: bold;
+            color: #222;
+        }
+
+        /* Primera columna (Actividades) alineada a la izquierda */
+        td:first-child, th:first-child {
+            text-align: left;
+            width: 28%;
+        }
+
+        /* Celdas con siglas (R, C, I) */
+        td:not(:first-child) {
+            font-weight: 500;
+        }
+
+        /* Fila de leyenda inferior */
+        .legend-row td {
+            background-color: #f4f1ea;
+            text-align: left;
+            font-size: 11px;
+            padding: 12px;
+            vertical-align: top;
+            border-top: 2px solid #a8a39a;
+        }
+
+        .legend-item {
+            margin-bottom: 4px;
+        }
+
+        .legend-item strong {
+            font-size: 12px;
+        }
