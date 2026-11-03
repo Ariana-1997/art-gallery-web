@@ -909,20 +909,11 @@ div[clas="lista_productos"] {
 }
 
 /* Matriz de responsabilidades*/
-body {
-            font-family: Arial, sans-serif;
-            background-color: #fcfbfa;
-            color: #111;
-            margin: 0;
-            padding: 20px;
-        }
 
-        .container {
+        .contenedor_matriz {
             max-width: 1000px;
             margin: 0 auto;
-        }
-
-        h1 {
+            h1 {
             font-size: 26px;
             font-weight: normal;
             border-bottom: 2px solid #e2ded6;
@@ -931,6 +922,9 @@ body {
             font-family: "Georgia", serif;
             text-align: center; /* <-- Aquí se centra el título */
         }
+        }
+
+        
 
         .table-wrapper {
             overflow-x: auto;
