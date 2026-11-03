@@ -902,6 +902,7 @@ div[clas="lista_productos"] {
         grid-template-columns: 1fr;
     }
 
+
     .organigrama__coordinacion,
     .organigrama__integrante {
         padding: 18px;
@@ -978,3 +979,5 @@ div[clas="lista_productos"] {
         .legend-item strong {
             font-size: 12px;
         }
+
+        
