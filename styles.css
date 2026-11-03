@@ -159,6 +159,12 @@ body {
     display: block;
 }
 
+.imagen-slide {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
 .subtitulo_productos {
     font-size: 13px;
     font-style: italic;
@@ -730,5 +736,174 @@ div[clas="lista_productos"] {
 
     to {
         transform: translateY(0px);
+    }
+}
+
+.seccion-organigrama {
+    max-width: 1240px;
+    margin: 48px auto 36px;
+    padding: 38px 24px 44px;
+    background: #FAFAFF;
+    border: 1px solid #DADDD8;
+    border-radius: 12px;
+}
+
+.seccion-organigrama__encabezado {
+    margin-bottom: 34px;
+    text-align: center;
+}
+
+.seccion-organigrama__etiqueta,
+.organigrama__nivel {
+    display: inline-block;
+    color: #8a6538;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+
+.seccion-organigrama__encabezado h2 {
+    margin: 8px 0;
+    color: #2e2619;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 700;
+}
+
+.seccion-organigrama__encabezado p {
+    margin: 0;
+    color: #555555;
+}
+
+.organigrama {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.organigrama__coordinacion,
+.organigrama__integrante {
+    position: relative;
+    padding: 22px;
+    border-radius: 10px;
+    box-shadow: 0 4px 14px rgba(28, 28, 28, 0.08);
+}
+
+.organigrama__coordinacion {
+    z-index: 1;
+    width: min(100%, 520px);
+    color: #FAFAFF;
+    background: #2e2619;
+    border: 2px solid #e7af6b;
+    text-align: center;
+}
+
+.organigrama__coordinacion::after {
+    position: absolute;
+    bottom: -34px;
+    left: 50%;
+    width: 2px;
+    height: 34px;
+    background: #C9A227;
+    content: "";
+}
+
+.organigrama__coordinacion .organigrama__nivel {
+    color: #e7af6b;
+}
+
+.organigrama__coordinacion h3,
+.organigrama__integrante h3 {
+    margin: 10px 0 6px;
+    font-size: 1.12rem;
+    font-weight: 700;
+}
+
+.organigrama__cargo {
+    margin: 0 0 10px;
+    color: #a9793e;
+    font-size: 0.92rem;
+    font-weight: 700;
+}
+
+.organigrama__coordinacion .organigrama__cargo {
+    color: #e7af6b;
+}
+
+.organigrama__coordinacion p:last-child,
+.organigrama__integrante p:last-child {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.organigrama__equipo {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    width: 100%;
+    margin-top: 34px;
+    padding-top: 30px;
+}
+
+.organigrama__equipo::before {
+    position: absolute;
+    top: 0;
+    right: 12.5%;
+    left: 12.5%;
+    height: 2px;
+    background: #C9A227;
+    content: "";
+}
+
+.organigrama__integrante {
+    background: #f4eee1;
+    border: 1px solid #e7af6b;
+    color: #1C1C1C;
+}
+
+.organigrama__integrante::before {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    width: 2px;
+    height: 30px;
+    background: #C9A227;
+    content: "";
+}
+
+.organigrama__integrante h3 {
+    font-size: 1rem;
+}
+
+@media (max-width: 900px) {
+    .organigrama__equipo {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+        margin-top: 26px;
+        padding-top: 0;
+    }
+
+    .organigrama__equipo::before,
+    .organigrama__coordinacion::after,
+    .organigrama__integrante::before {
+        display: none;
+    }
+}
+
+@media (max-width: 560px) {
+    .seccion-organigrama {
+        margin: 30px 14px;
+        padding: 30px 16px;
+    }
+
+    .organigrama__equipo {
+        grid-template-columns: 1fr;
+    }
+
+    .organigrama__coordinacion,
+    .organigrama__integrante {
+        padding: 18px;
     }
 }
