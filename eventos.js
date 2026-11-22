@@ -9,16 +9,16 @@ const cuadros = [
     { id: 8, nombre: "Cervatillo silvestre", categoria: "Óleo sobre lienzo", descripcion: "Un cervatillo mira al espectador desde un prado de pequeñas flores blancas y vegetación en tonos profundos.", precio: 1080, imagen: "../IMAGENES/p_img8.jpg", dimensiones: "80 x 100 cm", descuento: 0 },
     { id: 9, nombre: "Pericos primaverales", categoria: "Óleo sobre lienzo", descripcion: "Estos pericos están en plena primavera, con plumas vibrantes y miradas curiosas.", precio: 850, imagen: "../IMAGENES/p_img9.jpg", dimensiones: "80 x 100 cm",descuento: 0 },
     { id: 10, nombre: "Happy Purple", categoria: "Óleo sobre lienzo", descripcion: "flores violetas de pétalos amplios y centros oscuros sobre un fondo suave de tonos verdes y rosados.", precio: 1180, imagen: "../IMAGENES/p_img10.jpg", dimensiones: "100 x 80 cm", descuento: 0 },
-    { id: 11, nombre: "Loto", categoria: "Óleo sobre lienzo", descripcion: "Primer plano de loto y detalles dorados sobre un fondo luminoso.", precio: 890, imagen: "../IMAGENES/p_img11.jpg", dimensiones: "80 x 100 cm", destacado: false },
+    { id: 11, nombre: "Loto", categoria: "Óleo sobre lienzo", descripcion: "Primer plano de loto y detalles dorados sobre un fondo luminoso.", precio: 890, imagen: "../IMAGENES/p_img11.jpg", dimensiones: "80 x 100 cm", descuento: 0 },
     { id: 12, nombre: "Orquideas", categoria: "Óleo sobre lienzo", descripcion: "orquídeas blancas resaltan sobre un fondo abstracto de grises y dorados, con una composición vertical elegante.", precio: 1200, imagen: "../IMAGENES/p_img12.jpg", dimensiones: "80 x 100 cm", descuento: 0 },
-    { id: 13, nombre: "Peonias", categoria: "Óleo sobre lienzo", descripcion: "peonías en plena floración, con pétalos suaves y colores vibrantes.", precio: 980, imagen: "../IMAGENES/p_img13.jpg", dimensiones: "80 x 100 cm", destacado: false },
+    { id: 13, nombre: "Peonias", categoria: "Óleo sobre lienzo", descripcion: "peonías en plena floración, con pétalos suaves y colores vibrantes.", precio: 980, imagen: "../IMAGENES/p_img13.jpg", dimensiones: "80 x 100 cm", descuento: 0 },
     { id: 14, nombre: "El baile", categoria: "Óleo sobre lienzo", descripcion: "Cisnes blancos se encuentran sobre un estanque azul, rodeados de flores y reflejos de colores.", precio: 1320, imagen: "../IMAGENES/p_img14.jpg", dimensiones: "100 x 80 cm", descuento: 0 },
-    { id: 15, nombre: "Cisnes", categoria: "Óleo sobre lienzo", descripcion: "cisnes sobre tonos calidos en estanque con lotos", precio: 1050, imagen: "../IMAGENES/p_img15.jpg", dimensiones: "80 x 100 cm", destacado: false },
-    { id: 16, nombre: "Bodegon", categoria: "Retrato al óleo sobre lienzo", descripcion: "bodegon de frutas, uvas y telas", precio: 1650, imagen: "../IMAGENES/p_img16.jpg", dimensiones: "80 x 100 cm", destacado: false },
+    { id: 15, nombre: "Cisnes", categoria: "Óleo sobre lienzo", descripcion: "cisnes sobre tonos calidos en estanque con lotos", precio: 1050, imagen: "../IMAGENES/p_img15.jpg", dimensiones: "80 x 100 cm", descuento: 0 },
+    { id: 16, nombre: "Bodegon", categoria: "Retrato al óleo sobre lienzo", descripcion: "bodegon de frutas, uvas y telas", precio: 1650, imagen: "../IMAGENES/p_img16.jpg", dimensiones: "80 x 100 cm", descuento: 0 },
     { id: 17, nombre: "Caballo", categoria: "Óleo sobre lienzo", descripcion: "Representación devocional de Jesús con el Sagrado Corazón, manto rojo y túnica clara.", precio: 1450, imagen: "../IMAGENES/p_img17.jpg", dimensiones: "80 x 100 cm", descuento: 0 },
-    { id: 18, nombre: "Retrato personalizado", categoria: "Óleo sobre lienzo", descripcion: "retrato personalizado de una persona", precio: 1580, imagen: "../IMAGENES/p_img18.jpg", dimensiones: "80 x 120 cm", destacado: false },
-    { id: 19, nombre: "San Miguel", categoria: "Óleo sobre lienzo", descripcion: "san Miguel Arcángel protector de la humanidad.", precio: 1120, imagen: "../IMAGENES/p_img19.jpg", dimensiones: "80 x 100 cm", destacado: false },
-    { id: 20, nombre: "Sagrado corazon", categoria: "Óleo sobre lienzo", descripcion: "Sagrado corazon de Jesus protector y piadoso.", precio: 1350, imagen: "../IMAGENES/p_img20.jpg", dimensiones: "100 x 80 cm", destacado: false }
+    { id: 18, nombre: "Retrato personalizado", categoria: "Óleo sobre lienzo", descripcion: "retrato personalizado de una persona", precio: 1580, imagen: "../IMAGENES/p_img18.jpg", dimensiones: "80 x 120 cm", descuento: 0 },
+    { id: 19, nombre: "San Miguel", categoria: "Óleo sobre lienzo", descripcion: "san Miguel Arcángel protector de la humanidad.", precio: 1120, imagen: "../IMAGENES/p_img19.jpg", dimensiones: "80 x 100 cm", descuento: 0 },
+    { id: 20, nombre: "Sagrado corazon", categoria: "Óleo sobre lienzo", descripcion: "Sagrado corazon de Jesus protector y piadoso.", precio: 1350, imagen: "../IMAGENES/p_img20.jpg", dimensiones: "100 x 80 cm", descuento: 0 }
 ];
 
 
@@ -52,11 +52,12 @@ document.addEventListener("DOMContentLoaded", function () {
         <span class="precio-final">S/ ${precioFinal(cuadro)}</span>
         ${tieneDesc ? `<s class="precio-antes">S/ ${cuadro.precio}</s>` : ""}
     </p>
-    <a class="boton-comprar" href="#" data-id="${cuadro.id}">🛒 Agregar</a>
+    <button class="boton-comprar agregar-carrito" type="button" data-id="cuadro-${cuadro.id}" data-nombre="${cuadro.nombre}" data-precio="${precioFinal(cuadro)}" data-imagen="${cuadro.imagen}">🛒 Agregar</button>
     </div>
     </div>
     `;
     });
+
     // 2. Seleccionar las tarjetas DESPUÉS de crearlas
     const tarjetas = document.querySelectorAll(".item-tarjeta");
 
