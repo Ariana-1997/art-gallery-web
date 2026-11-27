@@ -1,14 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
+    <script src="../auth-admin.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Otay Artist</title>
-
-
-    <title>Bienvenida</title>
     <link rel="icon" type="image/png" href="../IMAGENES/logootay_header.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -22,7 +20,7 @@
     <header>
         <nav class="navbar navbar-expand-lg titulo sticky-top">
             <div class="container-fluid max-width-1200 px-lg-4">
-                <a class="navbar-brand logo-link" href="index.html">
+                <a class="navbar-brand logo-link" href="admin.html">
                     <img src="../IMAGENES/logootay_header.png" alt="Otay Artist" class="logo-header">
                 </a>
 
@@ -35,7 +33,7 @@
                 <div class="collapse navbar-collapse" id="menuOtay">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-lg-4">
                         <li class="nav-item">
-                            <a class="nav-link nav-link-otay active" href="admin.html">Bienvenida</a>
+                            <a class="nav-link nav-link-otay" href="admin.html">Bienvenida</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link nav-link-otay" href="busqueda_admin.html">Busqueda</a>
@@ -44,7 +42,7 @@
                             <a class="nav-link nav-link-otay" href="crud_admin.html">Cuadros</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link nav-link-otay" href="reportes_admin.html">Reportes</a>
+                            <a class="nav-link nav-link-otay active" aria-current="page" href="reportes_admin.html">Reportes</a>
                         </li>
                         <li class="nav-item-login">
                             <a class="nav-link nav-link-otay" href="#" onclick="logout()">Cerrar Sesión</a>

@@ -1,39 +1,24 @@
-const cuadros = [
-    { id: 1, nombre: "Ciervo dorado", categoria: "Óleo sobre lienzo", descripcion: "Un ciervo de gran cornamenta destaca sobre un fondo de tonos cálidos y dorados, ideal para dar presencia y calidez a una sala.", precio: 1150, imagen: "../IMAGENES/p_img1.jpg", dimensiones: "80 x 100 cm", descuento: 20 },
-    { id: 2, nombre: "Peces koi", categoria: "Óleo sobre lienzo", descripcion: "Dos peces koi rojizos nadan entre pinceladas claras y reflejos dorados; una composición de movimiento y abundancia.", precio: 980, imagen: "../IMAGENES/p_img2.jpg", dimensiones: "80 x 100 cm", descuento: 25 },
-    { id: 3, nombre: "Tigre blanco", categoria: "Óleo sobre lienzo", descripcion: "Retrato cercano de un tigre blanco con ojos ámbar y acentos dorados que resaltan su expresión serena e intensa.", precio: 1250, imagen: "../IMAGENES/p_img3.jpg", dimensiones: "80 x 80 cm", descuento: 10 },
-    { id: 4, nombre: "Bodegon animalista", categoria: "Óleo sobre lienzo", descripcion: "Racimos de uvas y flores rosadas en una escena de naturaleza muerta clásica.", precio: 1050, imagen: "../IMAGENES/p_img4.jpg", dimensiones: "80 x 100 cm", descuento: 15 },
-    { id: 5, nombre: "Bodegón vínico", categoria: "Óleo sobre lienzo", descripcion: "Bodegón de vino, copa y uvas iluminado por una luz cálida, con contrastes profundos y pincelada marcada.", precio: 1100, imagen: "../IMAGENES/p_img5.jpg", dimensiones: "80 x 100 cm",descuento: 0},
-    { id: 6, nombre: "Bodegon añejo", categoria: "Óleo sobre lienzo", descripcion: "Ramo de flores blancas y azules en un jarrón brillante, pintado con una textura rica y tonos elegantes.", precio: 920, imagen: "../IMAGENES/p_img6.jpg", dimensiones: "80 x 100 cm", descuento: 0 },
-    { id: 7, nombre: "Blue", categoria: "Óleo sobre lienzo", descripcion: "Ramos de hortencias blancas y azules en un jarrón brillante, pintado con una textura rica y tonos elegantes.", precio: 990, imagen: "../IMAGENES/p_img7.jpg", dimensiones: "80 x 120 cm", descuento: 0},
-    { id: 8, nombre: "Cervatillo silvestre", categoria: "Óleo sobre lienzo", descripcion: "Un cervatillo mira al espectador desde un prado de pequeñas flores blancas y vegetación en tonos profundos.", precio: 1080, imagen: "../IMAGENES/p_img8.jpg", dimensiones: "80 x 100 cm", descuento: 0 },
-    { id: 9, nombre: "Pericos primaverales", categoria: "Óleo sobre lienzo", descripcion: "Estos pericos están en plena primavera, con plumas vibrantes y miradas curiosas.", precio: 850, imagen: "../IMAGENES/p_img9.jpg", dimensiones: "80 x 100 cm",descuento: 0 },
-    { id: 10, nombre: "Happy Purple", categoria: "Óleo sobre lienzo", descripcion: "flores violetas de pétalos amplios y centros oscuros sobre un fondo suave de tonos verdes y rosados.", precio: 1180, imagen: "../IMAGENES/p_img10.jpg", dimensiones: "100 x 80 cm", descuento: 0 },
-    { id: 11, nombre: "Loto", categoria: "Óleo sobre lienzo", descripcion: "Primer plano de loto y detalles dorados sobre un fondo luminoso.", precio: 890, imagen: "../IMAGENES/p_img11.jpg", dimensiones: "80 x 100 cm", descuento: 0 },
-    { id: 12, nombre: "Orquideas", categoria: "Óleo sobre lienzo", descripcion: "orquídeas blancas resaltan sobre un fondo abstracto de grises y dorados, con una composición vertical elegante.", precio: 1200, imagen: "../IMAGENES/p_img12.jpg", dimensiones: "80 x 100 cm", descuento: 0 },
-    { id: 13, nombre: "Peonias", categoria: "Óleo sobre lienzo", descripcion: "peonías en plena floración, con pétalos suaves y colores vibrantes.", precio: 980, imagen: "../IMAGENES/p_img13.jpg", dimensiones: "80 x 100 cm", descuento: 0 },
-    { id: 14, nombre: "El baile", categoria: "Óleo sobre lienzo", descripcion: "Cisnes blancos se encuentran sobre un estanque azul, rodeados de flores y reflejos de colores.", precio: 1320, imagen: "../IMAGENES/p_img14.jpg", dimensiones: "100 x 80 cm", descuento: 0 },
-    { id: 15, nombre: "Cisnes", categoria: "Óleo sobre lienzo", descripcion: "cisnes sobre tonos calidos en estanque con lotos", precio: 1050, imagen: "../IMAGENES/p_img15.jpg", dimensiones: "80 x 100 cm", descuento: 0 },
-    { id: 16, nombre: "Bodegon", categoria: "Retrato al óleo sobre lienzo", descripcion: "bodegon de frutas, uvas y telas", precio: 1650, imagen: "../IMAGENES/p_img16.jpg", dimensiones: "80 x 100 cm", descuento: 0 },
-    { id: 17, nombre: "Caballo", categoria: "Óleo sobre lienzo", descripcion: "Representación devocional de Jesús con el Sagrado Corazón, manto rojo y túnica clara.", precio: 1450, imagen: "../IMAGENES/p_img17.jpg", dimensiones: "80 x 100 cm", descuento: 0 },
-    { id: 18, nombre: "Retrato personalizado", categoria: "Óleo sobre lienzo", descripcion: "retrato personalizado de una persona", precio: 1580, imagen: "../IMAGENES/p_img18.jpg", dimensiones: "80 x 120 cm", descuento: 0 },
-    { id: 19, nombre: "San Miguel", categoria: "Óleo sobre lienzo", descripcion: "san Miguel Arcángel protector de la humanidad.", precio: 1120, imagen: "../IMAGENES/p_img19.jpg", dimensiones: "80 x 100 cm", descuento: 0 },
-    { id: 20, nombre: "Sagrado corazon", categoria: "Óleo sobre lienzo", descripcion: "Sagrado corazon de Jesus protector y piadoso.", precio: 1350, imagen: "../IMAGENES/p_img20.jpg", dimensiones: "100 x 80 cm", descuento: 0 }
-];
-
-
-function precioFinal(c) {
-    return Math.round(c.precio * (1 - (c.descuento || 0) / 100) * 100) / 100;
-}
 document.addEventListener("DOMContentLoaded", function () {
     const inputBusqueda = document.getElementById("busqueda-input");
     const btnLimpiar = document.getElementById("btn-limpiar");
     const infoBusqueda = document.getElementById("info-busqueda");
     const sinResultados = document.getElementById("sin-resultados");
     const contenedor = document.getElementById("cuadrosOTAY");
+    // eventos.js se carga en varias páginas: solo seguimos si existe la galería.
+    if (!contenedor || typeof obtenerCuadros !== "function") return;
 
+    const cuadros = obtenerCuadros();
     contenedor.innerHTML = "";
-    cuadros.forEach(cuadro => {
+    cuadros.forEach(original => {
+        // Escapamos todos los textos: ahora los escribe el admin.
+        const cuadro = {
+            ...original,
+            nombre: escaparHTML(original.nombre),
+            categoria: escaparHTML(original.categoria),
+            descripcion: escaparHTML(original.descripcion),
+            dimensiones: escaparHTML(original.dimensiones),
+            imagen: escaparHTML(original.imagen)
+        };
         const tieneDesc = cuadro.descuento >0;
         contenedor.innerHTML += `
     <div class="tarjeta_productos item-tarjeta" data-nombre="${cuadro.nombre}" data-descripcion="${cuadro.descripcion}">
@@ -83,9 +68,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 coincidencias++;
 
                 if (query !== "") {
-                    const regex = new RegExp(`(${escaparRegex(query)})`, "gi");
-                    tituloEl.innerHTML = nombre.replace(regex, '<span class="resaltado-busqueda">$1</span>');
-                    descEl.innerHTML = descripcion.replace(regex, '<span class="resaltado-busqueda">$1</span>');
+                    const regex = new RegExp(`(${escaparRegex(escaparHTML(query))})`, "gi");
+                    tituloEl.innerHTML = escaparHTML(nombre).replace(regex, '<span class="resaltado-busqueda">$1</span>');
+                    descEl.innerHTML = escaparHTML(descripcion).replace(regex, '<span class="resaltado-busqueda">$1</span>');
                 } else {
                     tituloEl.textContent = nombre;
                     descEl.textContent = descripcion;
@@ -126,16 +111,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 //  login 
-function login() {
-    const user = document.getElementById("username").value;
-    const pass = document.getElementById("password").value;
+function login(event) {
+    if (event) event.preventDefault();
+    const userInput = document.getElementById("username");
+    const passInput = document.getElementById("password");
     const error = document.getElementById("error");
+    const user = userInput.value.trim();
+    const pass = passInput.value;
+
+    userInput.classList.remove("login-invalido");
+    passInput.classList.remove("login-invalido");
+
+    if (!user || !pass) {
+        if (!user) userInput.classList.add("login-invalido");
+        if (!pass) passInput.classList.add("login-invalido");
+        if (error) error.textContent = "Completa usuario y contraseña.";
+        return;
+    }
 
     if (user === "admin" && pass === "1234") {
         localStorage.setItem("usuario", user);
         window.location.href = "admin.html";
     } else {
-        error.innerText = "Usuario o contraseña incorrectos";
+        userInput.classList.add("login-invalido");
+        passInput.classList.add("login-invalido");
+        passInput.value = "";
+        passInput.focus();
+        if (error) error.textContent = "Usuario o contraseña incorrectos.";
     }
 }
 
