@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <span class="precio-final">S/ ${precioFinal(cuadro)}</span>
         ${tieneDesc ? `<s class="precio-antes">S/ ${cuadro.precio}</s>` : ""}
     </p>
-    <button class="boton-comprar agregar-carrito" type="button" data-id="cuadro-${cuadro.id}" data-nombre="${cuadro.nombre}" data-precio="${precioFinal(cuadro)}" data-imagen="${cuadro.imagen}">🛒 Agregar</button>
+    <button class="boton-comprar agregar-carrito" type="button" data-id="cuadro-${cuadro.id}" data-nombre="${cuadro.nombre}" data-precio="${precioFinal(cuadro)}" data-imagen="${cuadro.imagen}">Agregar al carrito</button>
     </div>
     </div>
     `;

@@ -170,7 +170,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 actualizarContadorCarrito();
                 botonAgregar.textContent = "Agregado al carrito";
                 window.setTimeout(() => {
-                    botonAgregar.textContent = "🛒 Agregar";
+                    botonAgregar.textContent = "Agregar al carrito";
                 }, 1200);
             }
             return;
