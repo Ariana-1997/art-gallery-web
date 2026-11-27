@@ -1155,28 +1155,56 @@ td:not(:first-child) {
 }
 
 .login-password input {
-    padding-right: 86px;
+    padding-right: 52px;
+}
+
+/* Oculta el ojo propio de Edge/IE para que solo quede nuestro botón */
+.login-password input::-ms-reveal,
+.login-password input::-ms-clear {
+    display: none;
 }
 
 .login-ver {
     position: absolute;
-    right: 7px;
+    right: 6px;
     top: 50%;
     transform: translateY(-50%);
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
     border: none;
-    border-radius: 999px;
-    background: #f4eee1;
+    border-radius: 50%;
+    background: transparent;
     color: #8a6a2c;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.78rem;
-    font-weight: 600;
-    padding: 7px 13px;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: background 0.2s, color 0.2s;
 }
 
-.login-ver:hover {
-    background: #ecdfc4;
+.login-ver:hover,
+.login-ver:focus-visible {
+    background: #f4eee1;
+    color: #352424;
+    outline: none;
+}
+
+.login-ver svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.login-ver .icono-ojo-tachado,
+.login-ver[aria-pressed="true"] .icono-ojo {
+    display: none;
+}
+
+.login-ver[aria-pressed="true"] .icono-ojo-tachado {
+    display: block;
 }
 
 .login-error {

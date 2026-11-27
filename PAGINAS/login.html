@@ -41,7 +41,19 @@
                         <input type="password" id="password" name="password" autocomplete="current-password"
                             placeholder="Tu contraseña" required>
                         <button type="button" class="login-ver" id="ver-password"
-                            aria-label="Mostrar contraseña" aria-pressed="false">ver</button>
+                            aria-label="Mostrar contraseña" aria-pressed="false" title="Mostrar contraseña">
+                            <!-- ojo abierto: contraseña oculta -->
+                            <svg class="icono-ojo" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z" />
+                                <circle cx="12" cy="12" r="3" />
+                            </svg>
+                            <!-- ojo tachado: contraseña visible -->
+                            <svg class="icono-ojo-tachado" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M2 12s3.6-7 10-7c2 0 3.7.7 5.1 1.6M22 12s-3.6 7-10 7c-2 0-3.7-.7-5.1-1.6" />
+                                <path d="M9.9 9.9a3 3 0 0 0 4.2 4.2" />
+                                <path d="M3 3l18 18" />
+                            </svg>
+                        </button>
                     </div>
                 </div>
 
@@ -59,11 +71,13 @@
         const botonVer = document.getElementById("ver-password");
         const inputPass = document.getElementById("password");
         botonVer.addEventListener("click", () => {
-            const visible = inputPass.type === "text";
-            inputPass.type = visible ? "password" : "text";
-            botonVer.textContent = visible ? "ver" : "ocultar";
-            botonVer.setAttribute("aria-pressed", String(!visible));
-            botonVer.setAttribute("aria-label", visible ? "Mostrar contraseña" : "Ocultar contraseña");
+            const mostrar = inputPass.type === "password";
+            inputPass.type = mostrar ? "text" : "password";
+            const texto = mostrar ? "Ocultar contraseña" : "Mostrar contraseña";
+            botonVer.setAttribute("aria-pressed", String(mostrar));
+            botonVer.setAttribute("aria-label", texto);
+            botonVer.title = texto;
+            inputPass.focus();
         });
     </script>
 </body>
