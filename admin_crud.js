@@ -6,6 +6,7 @@ const TAMANO_MAX_IMAGEN = 400 * 1024; // 400 KB: localStorage tiene ~5 MB en tot
 document.addEventListener("DOMContentLoaded", () => {
     const cuerpoTabla = document.getElementById("tabla-cuadros");
     const filtro = document.getElementById("filtro-admin");
+    const orden = document.getElementById("orden-admin");
     const contador = document.getElementById("contador-cuadros");
     const aviso = document.getElementById("aviso-crud");
 
@@ -21,12 +22,21 @@ document.addEventListener("DOMContentLoaded", () => {
     const modalBorrar = new bootstrap.Modal(modalBorrarEl);
     let idPorEliminar = null;
 
+    const comparadores = {
+        "id-asc": (a, b) => a.id - b.id,
+        "id-desc": (a, b) => b.id - a.id,
+        "precio-asc": (a, b) => precioFinal(a) - precioFinal(b),
+        "precio-desc": (a, b) => precioFinal(b) - precioFinal(a),
+        "nombre-asc": (a, b) => a.nombre.localeCompare(b.nombre, "es"),
+        descuento: (a, b) => (b.descuento || 0) - (a.descuento || 0) || a.id - b.id
+    };
+
     // ---------- READ ----------
     function renderTabla() {
         const texto = filtro.value.toLowerCase().trim();
         const cuadros = obtenerCuadros().filter(c =>
             `${c.nombre} ${c.categoria} ${c.descripcion}`.toLowerCase().includes(texto)
-        );
+        ).sort(comparadores[orden.value] || comparadores["id-asc"]);
         cuerpoTabla.replaceChildren();
         contador.textContent = `${cuadros.length} cuadro(s)`;
 
@@ -195,6 +205,7 @@ document.addEventListener("DOMContentLoaded", () => {
         mostrarAviso("Catálogo restaurado.", "info");
     });
     filtro.addEventListener("input", renderTabla);
+    orden.addEventListener("change", renderTabla);
 
     renderTabla();
 });

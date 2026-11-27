@@ -119,9 +119,34 @@
     <br>
     <br>
 
-    <form class="d-flex mx-4 mt-3 mt-lg-0" role="search" onsubmit="return false;">
-        <input class="form-control input-busqueda-otay me-2" type="search" id="busqueda-input"
+    <form class="barra-filtros mx-4 mt-3 mt-lg-0" role="search" onsubmit="return false;">
+        <input class="form-control input-busqueda-otay" type="search" id="busqueda-input"
             placeholder="Buscar cuadros u obras..." aria-label="Buscar">
+
+        <label class="filtro-grupo">
+            <span>Ordenar por</span>
+            <select class="form-select form-select-sm" id="orden-productos">
+                <option value="destacados">Destacados</option>
+                <option value="precio-asc">Precio: menor a mayor</option>
+                <option value="precio-desc">Precio: mayor a menor</option>
+                <option value="nombre-asc">Nombre: A → Z</option>
+                <option value="nombre-desc">Nombre: Z → A</option>
+                <option value="descuento">Mayor descuento</option>
+            </select>
+        </label>
+
+        <label class="filtro-grupo">
+            <span>Categoría</span>
+            <select class="form-select form-select-sm" id="filtro-categoria">
+                <option value="">Todas</option>
+            </select>
+        </label>
+
+        <div class="form-check form-switch filtro-ofertas">
+            <input class="form-check-input" type="checkbox" role="switch" id="solo-ofertas">
+            <label class="form-check-label" for="solo-ofertas">Solo ofertas</label>
+        </div>
+
         <button class="btn btn-outline-dark btn-sm" type="button" id="btn-limpiar">Limpiar</button>
     </form>
 
