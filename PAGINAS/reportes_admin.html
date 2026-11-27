@@ -55,28 +55,32 @@
     </header>
 
 
-    <center>
+    <main class="container my-5 reportes" style="max-width:1200px">
+        <h1 class="h3 mb-4">Porcentaje de ventas al mes</h1>
 
-        <br>
-        <h1>Porcentaje de ventas al mes</h1><br>
-        <div class="contenedor">
-            <h2>% sobre el total anual</h2>
-            <canvas id="GraficoBarras"></canvas>
+        <div class="reportes-grid">
+            <section class="reporte-tarjeta">
+                <h2>% sobre el total anual</h2>
+                <div class="grafico-caja">
+                    <canvas id="GraficoBarras"></canvas>
+                </div>
+            </section>
+
+            <section class="reporte-tarjeta">
+                <h2>Ventas por mes (S/)</h2>
+                <div class="grafico-caja">
+                    <canvas id="GraficoBarras1"></canvas>
+                </div>
+            </section>
+
+            <section class="reporte-tarjeta reporte-ancho">
+                <h2>Reporte de Ventas Mensuales</h2>
+                <div class="grafico-caja">
+                    <canvas id="GraficoLineas"></canvas>
+                </div>
+            </section>
         </div>
-
-        <div class="contenedor">
-            <h2>Ventas por mes (S/)</h2>
-            <canvas id="GraficoBarras1"></canvas>
-        </div>
-
-        <div class="contenedor">
-            <h2>Reporte de Ventas Mensuales</h2>
-            <canvas id="GraficoLineas"></canvas>
-        </div>
-        
-        
-
-    </center>
+    </main>
     <br>
     <br>
 

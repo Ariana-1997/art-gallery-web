@@ -1719,3 +1719,45 @@ td:not(:first-child) {
     width: 1%;
     white-space: nowrap;
 }
+
+/* ---------- Reportes (admin) ---------- */
+.reportes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 20px;
+}
+
+.reporte-tarjeta {
+    background: #FAFAFF;
+    border: 1px solid #e4dccb;
+    border-radius: 14px;
+    padding: 18px 20px 20px;
+    min-width: 0;
+}
+
+.reporte-tarjeta h2 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #352424;
+    margin: 0 0 12px;
+}
+
+.reporte-ancho {
+    grid-column: 1 / -1;
+}
+
+/* Altura fija: Chart.js se ajusta a esta caja (maintainAspectRatio: false) */
+.grafico-caja {
+    position: relative;
+    height: 280px;
+}
+
+@media (max-width: 768px) {
+    .reportes-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .grafico-caja {
+        height: 240px;
+    }
+}

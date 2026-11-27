@@ -204,8 +204,11 @@ if (cBarras) {
     new Chart(cBarras, {
         type: 'pie',
         data: { labels: meses, datasets: [{ data: ventas }] },
-        options: { responsive: true,
-            plugins: { title: { display: true, text: '% de ventas por mes' } } }
+        options: { responsive: true, maintainAspectRatio: false,
+            plugins: {
+                title: { display: true, text: '% de ventas por mes' },
+                legend: { position: 'right', labels: { boxWidth: 12, font: { size: 11 } } }
+            } }
     });
 }
 
@@ -214,7 +217,7 @@ if (cPie) {
     new Chart(cPie, {
         type: 'bar',
         data: { labels: meses, datasets: [{ label: 'Ventas (S/)', data: ventas }] },
-        options: { responsive: true,
+        options: { responsive: true, maintainAspectRatio: false,
             plugins: { title: { display: true, text: 'Ventas por mes' } } }
     });
 }
@@ -230,7 +233,7 @@ if (cLineas) {
                 { label: 'GASTOS (S/)', data: [800, 1000, 1200, 1100, 1500, 1800], tension: 0.3 }
             ]
         },
-        options: { responsive: true,
+        options: { responsive: true, maintainAspectRatio: false,
             plugins: { title: { display: true, text: 'Evolución de ventas y gastos' } } }
     });
 }
