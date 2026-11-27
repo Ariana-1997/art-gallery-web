@@ -112,17 +112,15 @@ document.addEventListener("DOMContentLoaded", () => {
         "id-desc": (a, b) => b.id - a.id
     };
 
-    let resultadosActuales = [];
-
     function buscar() {
         const c = leerCriterios();
         const palabras = normalizar(c.texto).split(/\s+/).filter(Boolean);
-        resultadosActuales = cuadros
+        const resultados = cuadros
             .filter(cuadro => cumple(cuadro, c, palabras))
             .sort(ordenes[c.orden] || ordenes.relevancia);
 
-        pintarResumen(resultadosActuales);
-        pintarTabla(resultadosActuales, palabras);
+        pintarResumen(resultados);
+        pintarTabla(resultados, palabras);
         pintarChips(c);
     }
 
@@ -196,21 +194,6 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!chip) return;
         form.elements[chip.dataset.campo].value = "";
         buscar();
-    });
-
-    // ---------- Exportar resultados a CSV (se abre en Excel) ----------
-    document.getElementById("btn-exportar").addEventListener("click", () => {
-        const columnas = ["ID", "Nombre", "Categoría", "Descripción", "Dimensiones", "Formato",
-            "Precio", "Descuento (%)", "Precio final"];
-        const celda = valor => `"${String(valor).replace(/"/g, '""')}"`;
-        const filas = resultadosActuales.map(c => [c.id, c.nombre, c.categoria, c.descripcion, c.dimensiones,
-            formato(c), c.precio, c.descuento || 0, precioFinal(c)].map(celda).join(";"));
-        const csv = "﻿" + [columnas.map(celda).join(";"), ...filas].join("\r\n");
-        const enlace = document.createElement("a");
-        enlace.href = URL.createObjectURL(new Blob([csv], { type: "text/csv;charset=utf-8" }));
-        enlace.download = `cuadros_${new Date().toISOString().slice(0, 10)}.csv`;
-        enlace.click();
-        URL.revokeObjectURL(enlace.href);
     });
 
     // ---------- Eventos ----------
