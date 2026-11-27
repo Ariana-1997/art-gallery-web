@@ -208,4 +208,12 @@ document.addEventListener("DOMContentLoaded", () => {
     orden.addEventListener("change", renderTabla);
 
     renderTabla();
+
+    // Llegar desde la búsqueda avanzada: crud_admin.html?editar=ID abre ese cuadro
+    const idEditar = new URLSearchParams(window.location.search).get("editar");
+    if (idEditar) {
+        const cuadro = obtenerCuadroPorId(idEditar);
+        if (cuadro) abrirFormulario(cuadro);
+        window.history.replaceState(null, "", window.location.pathname);
+    }
 });
