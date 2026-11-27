@@ -41,14 +41,11 @@ body {
     border-bottom: 1px solid #EEF0F2;
 }
 
-.barra-navegacion {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 14px;
+.navbar-collapse {
+    ul {
+        display: flex;
+        align-items: center;
+    }
 }
 
 .logo-link {
@@ -111,13 +108,45 @@ body {
 }
 
 .contenedor-info {
-    max-width: 820px;
-    text-align: center;
     max-width: 900px;
-    /* Ancho máximo para pantallas grandes */
-    margin: 0 auto;
-    padding: 0 1rem;
+    margin: 0 auto 24px;      /* centrado + espacio entre recuadros */
+    padding: 1.5rem 1rem;
+    text-align: center;
     background-color: #FAFAFF;
+}
+
+/* Recuadro 2: Misión y Visión lado a lado */
+.contenedor-mv {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+/* Línea divisoria entre las dos columnas */
+.contenedor-mv .info_index + .info_index {
+    border-left: 2px solid #e4dccb;
+    padding-left: 2rem;
+}
+
+/* Por si .info_index tiene ancho o márgenes propios */
+.contenedor-mv .info_index {
+    width: auto;
+    margin: 0;
+}
+
+/* En celular: una debajo de otra */
+@media (max-width: 768px) {
+    .contenedor-mv {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .contenedor-mv .info_index + .info_index {
+        border-left: none;
+        border-top: 1px solid #e4dccb;
+        padding-left: 0;
+        padding-top: 1.5rem;
+    }
 }
 
 .info_index {
@@ -996,6 +1025,7 @@ td:not(:first-child) {
 .nav-item-login {
     border: 1px solid #1C1C1C;
     border-radius: 6px;
+    padding: 5px 10px;
     transition: 1s;
 }
 
@@ -1723,8 +1753,8 @@ td:not(:first-child) {
 /* ---------- Reportes (admin) ---------- */
 .reportes-grid {
     display: grid;
-    grid-template-columns: 1fr 1.3fr;
-    gap: 20px;
+    grid-template-columns: 1fr;   /* una sola columna: un gráfico debajo del otro */
+    gap: 24px;
 }
 
 .reporte-tarjeta {
@@ -1736,12 +1766,14 @@ td:not(:first-child) {
 }
 
 .reporte-tarjeta h2 {
-    font-size: 1rem;
+    font-size: 2rem;
     font-weight: 600;
     color: #352424;
     margin: 0 0 12px;
+    text-align: center;
 }
 
+/* Ya no hace falta, pero déjala por si la usas en otro lado */
 .reporte-ancho {
     grid-column: 1 / -1;
 }
@@ -1749,15 +1781,29 @@ td:not(:first-child) {
 /* Altura fija: Chart.js se ajusta a esta caja (maintainAspectRatio: false) */
 .grafico-caja {
     position: relative;
-    height: 280px;
+    height: 400px;
+}
+
+/* La dona necesita más alto por la leyenda de abajo */
+.grafico-caja:has(#GraficoBarras) {
+    height: 460px;
+}
+
+/* El de categorías no necesita tanto */
+.grafico-caja:has(#GraficoCategorias) {
+    height: 340px;
 }
 
 @media (max-width: 768px) {
-    .reportes-grid {
-        grid-template-columns: 1fr;
+    .grafico-caja {
+        height: 340px;
     }
 
-    .grafico-caja {
-        height: 240px;
+    .grafico-caja:has(#GraficoBarras) {
+        height: 420px;
+    }
+
+    .grafico-caja:has(#GraficoCategorias) {
+        height: 300px;
     }
 }
