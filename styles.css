@@ -1005,59 +1005,234 @@ td:not(:first-child) {
     background-color: #3a31318e;
 }
 
-.headerlogin {
-    background-color: #cecac3;
+/* ---------- Página de login ---------- */
+.pagina-login {
+    margin: 0;
+    min-height: 100vh;
+    background-color: #f4eee1;
+    overflow-x: hidden;
 }
 
-.login-container {
+/* Obra de fondo difuminada con un velo cálido */
+.login-fondo {
+    position: fixed;
+    inset: -40px;
+    z-index: -1;
+    background:
+        linear-gradient(135deg, rgba(244, 238, 225, 0.78) 0%, rgba(226, 194, 122, 0.45) 100%),
+        url("IMAGENES/p_img3.jpg") center / cover no-repeat;
+    filter: blur(14px) saturate(1.1);
+    animation: login-respirar 18s ease-in-out infinite alternate;
+}
+
+@keyframes login-respirar {
+    from { transform: scale(1); }
+    to   { transform: scale(1.06); }
+}
+
+.login-volver {
+    position: absolute;
+    top: 22px;
+    left: 24px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(6px);
+    color: #352424;
+    text-decoration: none;
+    font-size: 0.88rem;
+    transition: background 0.2s;
+}
+
+.login-volver:hover {
+    background: rgba(255, 255, 255, 0.85);
+}
+
+.login-centro {
+    min-height: 100vh;
     display: flex;
-    justify-content: center;
     align-items: center;
-    margin-left: 20px;
-    margin-right: 20px;
-    
+    justify-content: center;
+    padding: 80px 20px 40px;
 }
 
-.login-form {
-    border-radius: 8px;
-    margin: 20px auto;
-    padding: 20px;
-    border: 1px solid #1c1b1b;
+/* Tarjeta tipo cristal */
+.login-tarjeta {
+    width: 100%;
+    max-width: 410px;
+    padding: 40px 36px 30px;
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.62);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    box-shadow: 0 24px 60px rgba(53, 36, 36, 0.18);
+    text-align: center;
+    animation: login-aparecer 0.7s ease-out both;
+}
+
+@keyframes login-aparecer {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.login-logo img {
+    width: 74px;
+    height: 74px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    box-shadow: 0 6px 16px rgba(53, 36, 36, 0.15);
+    margin-bottom: 18px;
+}
+
+.login-tarjeta h1 {
+    font-family: "Georgia", serif;
+    font-size: 1.85rem;
+    font-weight: 400;
+    color: #352424;
+    margin: 0 0 8px;
+}
+
+.login-subtitulo {
+    color: #6b5d52;
+    font-size: 0.93rem;
+    line-height: 1.5;
+    margin: 0 0 28px;
+}
+
+.login-formulario {
     display: flex;
     flex-direction: column;
-    max-width: 500px;
-    align-items: left;
-    background-color: #dcdcdcb4;
+    gap: 16px;
+    text-align: left;
+}
 
-    h2 {
-        text-align: center;
+.login-campo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.login-campo label {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: #6b5d52;
+    padding-left: 16px;
+}
+
+.login-campo input {
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.98rem;
+    padding: 13px 18px;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #1C1C1C;
+    box-shadow: inset 0 1px 3px rgba(53, 36, 36, 0.08);
+    transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+
+.login-campo input::placeholder {
+    color: #a89c90;
+}
+
+.login-campo input:focus {
+    outline: none;
+    background-color: #fff;
+    border-color: #d4ad5c;
+    box-shadow: 0 0 0 4px rgba(212, 173, 92, 0.22);
+}
+
+.login-campo input.login-invalido {
+    border-color: #d77a6f;
+    box-shadow: 0 0 0 4px rgba(215, 122, 111, 0.18);
+}
+
+.login-password {
+    position: relative;
+}
+
+.login-password input {
+    padding-right: 86px;
+}
+
+.login-ver {
+    position: absolute;
+    right: 7px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    border-radius: 999px;
+    background: #f4eee1;
+    color: #8a6a2c;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 7px 13px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.login-ver:hover {
+    background: #ecdfc4;
+}
+
+.login-error {
+    min-height: 1.2em;
+    margin: -4px 0 0;
+    padding-left: 16px;
+    color: #b4463b;
+    font-size: 0.85rem;
+}
+
+.login-boton {
+    margin-top: 4px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    padding: 14px;
+    border: none;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #4a3430 0%, #352424 100%);
+    color: #FAFAFF;
+    cursor: pointer;
+    box-shadow: 0 10px 22px rgba(53, 36, 36, 0.25);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.login-boton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(53, 36, 36, 0.3);
+}
+
+.login-boton:active {
+    transform: translateY(0);
+}
+
+.login-nota {
+    margin: 22px 0 0;
+    font-size: 0.8rem;
+    color: #8c7f73;
+}
+
+@media (max-width: 480px) {
+    .login-tarjeta {
+        padding: 32px 22px 24px;
+        border-radius: 22px;
     }
-    input{
-        font-family: 'Montserrat', sans-serif;
-        font-size: 16px;
-        border-radius: 7px;
-        padding: 5px;
-        width: 280px;
-        background-color: #FAFAFF;
-        border: 1px solid #1c1b1b;
+
+    .login-tarjeta h1 {
+        font-size: 1.55rem;
     }
-    label {
-        font-family: 'Montserrat', sans-serif;
-        font-size: 16px;
-        margin-right: 18px;
-    }
-    button {
-        font-family: 'Montserrat', sans-serif;
-        font-size: 16px;
-        padding: 10px 20px;
-        border-radius: 7px;
-        background-color: #352424;
-        color: #FAFAFF;
-        align-self: center;
-    }
-    button:hover {
-        background-color: #1C1C1C;
-        color: #FAFAFF;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .login-fondo,
+    .login-tarjeta {
+        animation: none;
     }
 }
 

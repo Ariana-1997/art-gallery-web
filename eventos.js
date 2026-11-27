@@ -126,16 +126,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 //  login 
-function login() {
-    const user = document.getElementById("username").value;
-    const pass = document.getElementById("password").value;
+function login(event) {
+    if (event) event.preventDefault();
+    const userInput = document.getElementById("username");
+    const passInput = document.getElementById("password");
     const error = document.getElementById("error");
+    const user = userInput.value.trim();
+    const pass = passInput.value;
+
+    userInput.classList.remove("login-invalido");
+    passInput.classList.remove("login-invalido");
+
+    if (!user || !pass) {
+        if (!user) userInput.classList.add("login-invalido");
+        if (!pass) passInput.classList.add("login-invalido");
+        if (error) error.textContent = "Completa usuario y contraseña.";
+        return;
+    }
 
     if (user === "admin" && pass === "1234") {
         localStorage.setItem("usuario", user);
         window.location.href = "admin.html";
     } else {
-        error.innerText = "Usuario o contraseña incorrectos";
+        userInput.classList.add("login-invalido");
+        passInput.classList.add("login-invalido");
+        passInput.value = "";
+        passInput.focus();
+        if (error) error.textContent = "Usuario o contraseña incorrectos.";
     }
 }
 
