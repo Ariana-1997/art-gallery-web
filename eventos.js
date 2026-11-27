@@ -4,12 +4,15 @@ document.addEventListener("DOMContentLoaded", function () {
     const infoBusqueda = document.getElementById("info-busqueda");
     const sinResultados = document.getElementById("sin-resultados");
     const contenedor = document.getElementById("cuadrosOTAY");
+    const selectOrden = document.getElementById("orden-productos");
+    const selectCategoria = document.getElementById("filtro-categoria");
+    const checkOfertas = document.getElementById("solo-ofertas");
     // eventos.js se carga en varias páginas: solo seguimos si existe la galería.
     if (!contenedor || typeof obtenerCuadros !== "function") return;
 
     const cuadros = obtenerCuadros();
     contenedor.innerHTML = "";
-    cuadros.forEach(original => {
+    cuadros.forEach((original, posicion) => {
         // Escapamos todos los textos: ahora los escribe el admin.
         const cuadro = {
             ...original,
@@ -21,7 +24,8 @@ document.addEventListener("DOMContentLoaded", function () {
         };
         const tieneDesc = cuadro.descuento >0;
         contenedor.innerHTML += `
-    <div class="tarjeta_productos item-tarjeta" data-nombre="${cuadro.nombre}" data-descripcion="${cuadro.descripcion}">
+    <div class="tarjeta_productos item-tarjeta" data-nombre="${cuadro.nombre}" data-descripcion="${cuadro.descripcion}"
+        data-categoria="${cuadro.categoria}" data-precio="${precioFinal(cuadro)}" data-descuento="${Number(cuadro.descuento) || 0}" data-posicion="${posicion}">
     ${tieneDesc ? `<span class="etiqueta-desc">-${cuadro.descuento}%</span>` : ""}
     <div class="marco-imagen">
     <img class="producto1" src="${cuadro.imagen}" alt="Portada de ${cuadro.nombre}">
@@ -44,7 +48,30 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // 2. Seleccionar las tarjetas DESPUÉS de crearlas
-    const tarjetas = document.querySelectorAll(".item-tarjeta");
+    const tarjetas = Array.from(document.querySelectorAll(".item-tarjeta"));
+
+    // Llenar el filtro de categorías con las que existen en el catálogo
+    if (selectCategoria) {
+        [...new Set(cuadros.map(c => c.categoria))]
+            .sort((a, b) => a.localeCompare(b, "es"))
+            .forEach(categoria => selectCategoria.append(new Option(categoria, categoria)));
+    }
+
+    // Comparadores para cada opción de "Ordenar por"
+    const ordenes = {
+        destacados: (a, b) => a.dataset.posicion - b.dataset.posicion,
+        "precio-asc": (a, b) => a.dataset.precio - b.dataset.precio,
+        "precio-desc": (a, b) => b.dataset.precio - a.dataset.precio,
+        "nombre-asc": (a, b) => a.dataset.nombre.localeCompare(b.dataset.nombre, "es"),
+        "nombre-desc": (a, b) => b.dataset.nombre.localeCompare(a.dataset.nombre, "es"),
+        descuento: (a, b) => (b.dataset.descuento - a.dataset.descuento) || (a.dataset.posicion - b.dataset.posicion)
+    };
+
+    function ordenarTarjetas() {
+        const criterio = selectOrden ? selectOrden.value : "destacados";
+        tarjetas.slice().sort(ordenes[criterio] || ordenes.destacados)
+            .forEach(card => contenedor.append(card));
+    }
 
     function escaparRegex(texto) {
         return texto.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -53,6 +80,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function filtrarProductos() {
         const query = inputBusqueda.value.toLowerCase().trim();
+        const categoria = selectCategoria ? selectCategoria.value : "";
+        const soloOfertas = checkOfertas ? checkOfertas.checked : false;
+        const hayFiltros = query !== "" || categoria !== "" || soloOfertas;
         let coincidencias = 0;
 
         tarjetas.forEach(function (card) {
@@ -63,7 +93,10 @@ document.addEventListener("DOMContentLoaded", function () {
             const tituloEl = card.querySelector(".prod-titulo");
             const descEl = card.querySelector(".prod-desc");
 
-            if (textoTotal.includes(query)) {
+            const pasaCategoria = !categoria || card.dataset.categoria === categoria;
+            const pasaOferta = !soloOfertas || Number(card.dataset.descuento) > 0;
+
+            if (textoTotal.includes(query) && pasaCategoria && pasaOferta) {
                 card.style.display = "";
                 coincidencias++;
 
@@ -80,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
-        if (query === "") {
+        if (!hayFiltros) {
             infoBusqueda.textContent = "";
             sinResultados.classList.add("d-none");
         } else {
@@ -94,9 +127,16 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     inputBusqueda.addEventListener("input", filtrarProductos);
+    if (selectCategoria) selectCategoria.addEventListener("change", filtrarProductos);
+    if (checkOfertas) checkOfertas.addEventListener("change", filtrarProductos);
+    if (selectOrden) selectOrden.addEventListener("change", ordenarTarjetas);
 
     btnLimpiar.addEventListener("click", function () {
         inputBusqueda.value = "";
+        if (selectCategoria) selectCategoria.value = "";
+        if (checkOfertas) checkOfertas.checked = false;
+        if (selectOrden) selectOrden.value = "destacados";
+        ordenarTarjetas();
         filtrarProductos();
         inputBusqueda.focus();
     });
