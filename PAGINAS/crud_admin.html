@@ -65,6 +65,14 @@
 
         <div class="d-flex align-items-center gap-3 mb-3">
             <input type="search" id="filtro-admin" class="form-control" placeholder="Filtrar por nombre, categoría o descripción..." aria-label="Filtrar cuadros">
+            <select id="orden-admin" class="form-select w-auto" aria-label="Ordenar cuadros">
+                <option value="id-asc">Más antiguos primero</option>
+                <option value="id-desc">Más recientes primero</option>
+                <option value="precio-asc">Precio: menor a mayor</option>
+                <option value="precio-desc">Precio: mayor a menor</option>
+                <option value="nombre-asc">Nombre: A → Z</option>
+                <option value="descuento">Mayor descuento</option>
+            </select>
             <span id="contador-cuadros" class="text-muted text-nowrap small"></span>
         </div>
 
